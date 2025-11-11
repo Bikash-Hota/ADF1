@@ -1,0 +1,20 @@
+{
+	"name": "DS_trg",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_BULK_PQ",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "trigger",
+				"fileSystem": "trig"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
