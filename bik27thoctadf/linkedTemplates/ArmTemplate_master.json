@@ -1,0 +1,398 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "bik27thoctadf"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
+		},
+		"AzureDataLakeStorage2_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage2'"
+		},
+		"FileServer1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'FileServer1'"
+		},
+		"LS_BULK_CSV_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_BULK_CSV'"
+		},
+		"LS_BULK_PQ_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_BULK_PQ'"
+		},
+		"LS_EXcel_movesink_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_EXcel_movesink'"
+		},
+		"LS_Excel_move_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_Excel_move'"
+		},
+		"LS_Excelsource_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_Excelsource'"
+		},
+		"LS_FRE_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_FRE'"
+		},
+		"LS_Folder_SInk_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_Folder_SInk'"
+		},
+		"LS_Folder_source_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_Folder_source'"
+		},
+		"LS_Multicsv_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_Multicsv'"
+		},
+		"LS_SQL2_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_SQL2'"
+		},
+		"LS_SQL_Dum_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_SQL_Dum'"
+		},
+		"LS_SQL_bhai_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_SQL_bhai'"
+		},
+		"LS_filter_emp_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_filter_emp'"
+		},
+		"LS_stored_proc_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_stored_proc'"
+		},
+		"SqlServer1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'SqlServer1'"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevsinktest.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage2_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevsourcetest.dfs.core.windows.net/"
+		},
+		"FileServer1_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "C:\\Users\\hotab\\Downloads\\archive (1)"
+		},
+		"FileServer1_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "bik"
+		},
+		"LS_BULK_CSV_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevsourcetest.dfs.core.windows.net"
+		},
+		"LS_BULK_PQ_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevsinktest.dfs.core.windows.net/"
+		},
+		"LS_EXcel_movesink_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevsinktest.dfs.core.windows.net/"
+		},
+		"LS_Excel_move_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevsourcetest.dfs.core.windows.net"
+		},
+		"LS_Excelsource_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevsourcetest.dfs.core.windows.net/"
+		},
+		"LS_FRE_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevsinktest.dfs.core.windows.net/"
+		},
+		"LS_Folder_SInk_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevsinktest.dfs.core.windows.net/"
+		},
+		"LS_Folder_source_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevsourcetest.dfs.core.windows.net"
+		},
+		"LS_Multicsv_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevsourcetest.dfs.core.windows.net"
+		},
+		"LS_SQL2_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "BICKYSLUCKY"
+		},
+		"LS_SQL2_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "CompanyDB"
+		},
+		"LS_SQL2_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "sa"
+		},
+		"LS_SQL_Dum_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "BICKYSLUCKY"
+		},
+		"LS_SQL_Dum_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "master"
+		},
+		"LS_SQL_Dum_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "sa"
+		},
+		"LS_SQL_bhai_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "BICKYSLUCKY"
+		},
+		"LS_SQL_bhai_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "CompanyDB"
+		},
+		"LS_SQL_bhai_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "sa"
+		},
+		"LS_filter_emp_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevsinktest.dfs.core.windows.net/"
+		},
+		"LS_stored_proc_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "BICKYSLUCKY"
+		},
+		"LS_stored_proc_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "CompanyDB"
+		},
+		"LS_stored_proc_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "sa"
+		},
+		"SqlServer1_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "BICKYSLUCKY"
+		},
+		"SqlServer1_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "CompanyDB"
+		},
+		"SqlServer1_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "sa"
+		},
+		"TR_event1_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/24f7968e-652e-4f9b-b439-5f3e78b20072/resourceGroups/bik27thoct/providers/Microsoft.Storage/storageAccounts/adlsdevsourcetest"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "bik27thoctadf_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureDataLakeStorage1_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
+					},
+					"AzureDataLakeStorage2_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage2_accountKey')]"
+					},
+					"FileServer1_password": {
+						"value": "[parameters('FileServer1_password')]"
+					},
+					"LS_BULK_CSV_accountKey": {
+						"value": "[parameters('LS_BULK_CSV_accountKey')]"
+					},
+					"LS_BULK_PQ_accountKey": {
+						"value": "[parameters('LS_BULK_PQ_accountKey')]"
+					},
+					"LS_EXcel_movesink_accountKey": {
+						"value": "[parameters('LS_EXcel_movesink_accountKey')]"
+					},
+					"LS_Excel_move_accountKey": {
+						"value": "[parameters('LS_Excel_move_accountKey')]"
+					},
+					"LS_Excelsource_accountKey": {
+						"value": "[parameters('LS_Excelsource_accountKey')]"
+					},
+					"LS_FRE_accountKey": {
+						"value": "[parameters('LS_FRE_accountKey')]"
+					},
+					"LS_Folder_SInk_accountKey": {
+						"value": "[parameters('LS_Folder_SInk_accountKey')]"
+					},
+					"LS_Folder_source_accountKey": {
+						"value": "[parameters('LS_Folder_source_accountKey')]"
+					},
+					"LS_Multicsv_accountKey": {
+						"value": "[parameters('LS_Multicsv_accountKey')]"
+					},
+					"LS_filter_emp_accountKey": {
+						"value": "[parameters('LS_filter_emp_accountKey')]"
+					},
+					"AzureDataLakeStorage1_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
+					},
+					"AzureDataLakeStorage2_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage2_properties_typeProperties_url')]"
+					},
+					"FileServer1_properties_typeProperties_host": {
+						"value": "[parameters('FileServer1_properties_typeProperties_host')]"
+					},
+					"FileServer1_properties_typeProperties_userId": {
+						"value": "[parameters('FileServer1_properties_typeProperties_userId')]"
+					},
+					"LS_BULK_CSV_properties_typeProperties_url": {
+						"value": "[parameters('LS_BULK_CSV_properties_typeProperties_url')]"
+					},
+					"LS_BULK_PQ_properties_typeProperties_url": {
+						"value": "[parameters('LS_BULK_PQ_properties_typeProperties_url')]"
+					},
+					"LS_EXcel_movesink_properties_typeProperties_url": {
+						"value": "[parameters('LS_EXcel_movesink_properties_typeProperties_url')]"
+					},
+					"LS_Excel_move_properties_typeProperties_url": {
+						"value": "[parameters('LS_Excel_move_properties_typeProperties_url')]"
+					},
+					"LS_Excelsource_properties_typeProperties_url": {
+						"value": "[parameters('LS_Excelsource_properties_typeProperties_url')]"
+					},
+					"LS_FRE_properties_typeProperties_url": {
+						"value": "[parameters('LS_FRE_properties_typeProperties_url')]"
+					},
+					"LS_Folder_SInk_properties_typeProperties_url": {
+						"value": "[parameters('LS_Folder_SInk_properties_typeProperties_url')]"
+					},
+					"LS_Folder_source_properties_typeProperties_url": {
+						"value": "[parameters('LS_Folder_source_properties_typeProperties_url')]"
+					},
+					"LS_Multicsv_properties_typeProperties_url": {
+						"value": "[parameters('LS_Multicsv_properties_typeProperties_url')]"
+					},
+					"LS_filter_emp_properties_typeProperties_url": {
+						"value": "[parameters('LS_filter_emp_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "bik27thoctadf_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"LS_SQL2_password": {
+						"value": "[parameters('LS_SQL2_password')]"
+					},
+					"LS_SQL_Dum_password": {
+						"value": "[parameters('LS_SQL_Dum_password')]"
+					},
+					"LS_SQL_bhai_password": {
+						"value": "[parameters('LS_SQL_bhai_password')]"
+					},
+					"LS_stored_proc_password": {
+						"value": "[parameters('LS_stored_proc_password')]"
+					},
+					"SqlServer1_password": {
+						"value": "[parameters('SqlServer1_password')]"
+					},
+					"LS_SQL2_properties_typeProperties_server": {
+						"value": "[parameters('LS_SQL2_properties_typeProperties_server')]"
+					},
+					"LS_SQL2_properties_typeProperties_database": {
+						"value": "[parameters('LS_SQL2_properties_typeProperties_database')]"
+					},
+					"LS_SQL2_properties_typeProperties_userName": {
+						"value": "[parameters('LS_SQL2_properties_typeProperties_userName')]"
+					},
+					"LS_SQL_Dum_properties_typeProperties_server": {
+						"value": "[parameters('LS_SQL_Dum_properties_typeProperties_server')]"
+					},
+					"LS_SQL_Dum_properties_typeProperties_database": {
+						"value": "[parameters('LS_SQL_Dum_properties_typeProperties_database')]"
+					},
+					"LS_SQL_Dum_properties_typeProperties_userName": {
+						"value": "[parameters('LS_SQL_Dum_properties_typeProperties_userName')]"
+					},
+					"LS_SQL_bhai_properties_typeProperties_server": {
+						"value": "[parameters('LS_SQL_bhai_properties_typeProperties_server')]"
+					},
+					"LS_SQL_bhai_properties_typeProperties_database": {
+						"value": "[parameters('LS_SQL_bhai_properties_typeProperties_database')]"
+					},
+					"LS_SQL_bhai_properties_typeProperties_userName": {
+						"value": "[parameters('LS_SQL_bhai_properties_typeProperties_userName')]"
+					},
+					"LS_stored_proc_properties_typeProperties_server": {
+						"value": "[parameters('LS_stored_proc_properties_typeProperties_server')]"
+					},
+					"LS_stored_proc_properties_typeProperties_database": {
+						"value": "[parameters('LS_stored_proc_properties_typeProperties_database')]"
+					},
+					"LS_stored_proc_properties_typeProperties_userName": {
+						"value": "[parameters('LS_stored_proc_properties_typeProperties_userName')]"
+					},
+					"SqlServer1_properties_typeProperties_server": {
+						"value": "[parameters('SqlServer1_properties_typeProperties_server')]"
+					},
+					"SqlServer1_properties_typeProperties_database": {
+						"value": "[parameters('SqlServer1_properties_typeProperties_database')]"
+					},
+					"SqlServer1_properties_typeProperties_userName": {
+						"value": "[parameters('SqlServer1_properties_typeProperties_userName')]"
+					},
+					"TR_event1_properties_typeProperties_scope": {
+						"value": "[parameters('TR_event1_properties_typeProperties_scope')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'bik27thoctadf_ArmTemplate_0')]"
+			]
+		}
+	]
+}

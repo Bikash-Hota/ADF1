@@ -1,0 +1,153 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "bik27thoctadf"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage2_accountKey": {
+			"value": ""
+		},
+		"FileServer1_password": {
+			"value": ""
+		},
+		"LS_BULK_CSV_accountKey": {
+			"value": ""
+		},
+		"LS_BULK_PQ_accountKey": {
+			"value": ""
+		},
+		"LS_EXcel_movesink_accountKey": {
+			"value": ""
+		},
+		"LS_Excel_move_accountKey": {
+			"value": ""
+		},
+		"LS_Excelsource_accountKey": {
+			"value": ""
+		},
+		"LS_FRE_accountKey": {
+			"value": ""
+		},
+		"LS_Folder_SInk_accountKey": {
+			"value": ""
+		},
+		"LS_Folder_source_accountKey": {
+			"value": ""
+		},
+		"LS_Multicsv_accountKey": {
+			"value": ""
+		},
+		"LS_SQL2_password": {
+			"value": ""
+		},
+		"LS_SQL_Dum_password": {
+			"value": ""
+		},
+		"LS_SQL_bhai_password": {
+			"value": ""
+		},
+		"LS_filter_emp_accountKey": {
+			"value": ""
+		},
+		"LS_stored_proc_password": {
+			"value": ""
+		},
+		"SqlServer1_password": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://adlsdevsinktest.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage2_properties_typeProperties_url": {
+			"value": "https://adlsdevsourcetest.dfs.core.windows.net/"
+		},
+		"FileServer1_properties_typeProperties_host": {
+			"value": "C:\\Users\\hotab\\Downloads\\archive (1)"
+		},
+		"FileServer1_properties_typeProperties_userId": {
+			"value": "bik"
+		},
+		"LS_BULK_CSV_properties_typeProperties_url": {
+			"value": "https://adlsdevsourcetest.dfs.core.windows.net"
+		},
+		"LS_BULK_PQ_properties_typeProperties_url": {
+			"value": "https://adlsdevsinktest.dfs.core.windows.net/"
+		},
+		"LS_EXcel_movesink_properties_typeProperties_url": {
+			"value": "https://adlsdevsinktest.dfs.core.windows.net/"
+		},
+		"LS_Excel_move_properties_typeProperties_url": {
+			"value": "https://adlsdevsourcetest.dfs.core.windows.net"
+		},
+		"LS_Excelsource_properties_typeProperties_url": {
+			"value": "https://adlsdevsourcetest.dfs.core.windows.net/"
+		},
+		"LS_FRE_properties_typeProperties_url": {
+			"value": "https://adlsdevsinktest.dfs.core.windows.net/"
+		},
+		"LS_Folder_SInk_properties_typeProperties_url": {
+			"value": "https://adlsdevsinktest.dfs.core.windows.net/"
+		},
+		"LS_Folder_source_properties_typeProperties_url": {
+			"value": "https://adlsdevsourcetest.dfs.core.windows.net"
+		},
+		"LS_Multicsv_properties_typeProperties_url": {
+			"value": "https://adlsdevsourcetest.dfs.core.windows.net"
+		},
+		"LS_SQL2_properties_typeProperties_server": {
+			"value": "BICKYSLUCKY"
+		},
+		"LS_SQL2_properties_typeProperties_database": {
+			"value": "CompanyDB"
+		},
+		"LS_SQL2_properties_typeProperties_userName": {
+			"value": "sa"
+		},
+		"LS_SQL_Dum_properties_typeProperties_server": {
+			"value": "BICKYSLUCKY"
+		},
+		"LS_SQL_Dum_properties_typeProperties_database": {
+			"value": "master"
+		},
+		"LS_SQL_Dum_properties_typeProperties_userName": {
+			"value": "sa"
+		},
+		"LS_SQL_bhai_properties_typeProperties_server": {
+			"value": "BICKYSLUCKY"
+		},
+		"LS_SQL_bhai_properties_typeProperties_database": {
+			"value": "CompanyDB"
+		},
+		"LS_SQL_bhai_properties_typeProperties_userName": {
+			"value": "sa"
+		},
+		"LS_filter_emp_properties_typeProperties_url": {
+			"value": "https://adlsdevsinktest.dfs.core.windows.net/"
+		},
+		"LS_stored_proc_properties_typeProperties_server": {
+			"value": "BICKYSLUCKY"
+		},
+		"LS_stored_proc_properties_typeProperties_database": {
+			"value": "CompanyDB"
+		},
+		"LS_stored_proc_properties_typeProperties_userName": {
+			"value": "sa"
+		},
+		"SqlServer1_properties_typeProperties_server": {
+			"value": "BICKYSLUCKY"
+		},
+		"SqlServer1_properties_typeProperties_database": {
+			"value": "CompanyDB"
+		},
+		"SqlServer1_properties_typeProperties_userName": {
+			"value": "sa"
+		},
+		"TR_event1_properties_typeProperties_scope": {
+			"value": "/subscriptions/24f7968e-652e-4f9b-b439-5f3e78b20072/resourceGroups/bik27thoct/providers/Microsoft.Storage/storageAccounts/adlsdevsourcetest"
+		}
+	}
+}
