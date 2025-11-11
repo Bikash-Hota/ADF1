@@ -13,7 +13,7 @@
 		],
 		"type": "BlobEventsTrigger",
 		"typeProperties": {
-			"blobPathBeginsWith": "/bulk/blobs/",
+			"blobPathBeginsWith": "/bulk/blobs/test",
 			"ignoreEmptyBlobs": true,
 			"scope": "/subscriptions/24f7968e-652e-4f9b-b439-5f3e78b20072/resourceGroups/bik27thoct/providers/Microsoft.Storage/storageAccounts/adlsdevsourcetest",
 			"events": [
