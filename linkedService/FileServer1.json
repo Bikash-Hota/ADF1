@@ -1,0 +1,13 @@
+{
+	"name": "FileServer1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "FileServer",
+		"typeProperties": {
+			"host": "C:\\Users\\hotab\\Downloads\\archive (1)",
+			"userId": "bik",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDFBMTU4MjU5LURBRDQtNDlCNi04MzM0LUQ4NjZFNjBDNTI5RV80NDY2OTNhYS1hM2UxLTQ2OTctODI1Ni0wMmIxMmUxYmRkOTAiDQp9"
+		}
+	}
+}

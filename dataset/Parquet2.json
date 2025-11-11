@@ -1,0 +1,73 @@
+{
+	"name": "Parquet2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_Folder_SInk",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "output"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": [
+			{
+				"name": "price",
+				"type": "UTF8"
+			},
+			{
+				"name": "area",
+				"type": "UTF8"
+			},
+			{
+				"name": "bedrooms",
+				"type": "UTF8"
+			},
+			{
+				"name": "bathrooms",
+				"type": "UTF8"
+			},
+			{
+				"name": "stories",
+				"type": "UTF8"
+			},
+			{
+				"name": "mainroad",
+				"type": "UTF8"
+			},
+			{
+				"name": "guestroom",
+				"type": "UTF8"
+			},
+			{
+				"name": "basement",
+				"type": "UTF8"
+			},
+			{
+				"name": "hotwaterheating",
+				"type": "UTF8"
+			},
+			{
+				"name": "airconditioning",
+				"type": "UTF8"
+			},
+			{
+				"name": "parking",
+				"type": "UTF8"
+			},
+			{
+				"name": "prefarea",
+				"type": "UTF8"
+			},
+			{
+				"name": "furnishingstatus",
+				"type": "UTF8"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

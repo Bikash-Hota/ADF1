@@ -1,0 +1,13 @@
+{
+	"name": "LS_BULK_PQ",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"description": "Data from csv to parquet",
+		"annotations": [],
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://adlsdevsinktest.dfs.core.windows.net/",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDFBMTU4MjU5LURBRDQtNDlCNi04MzM0LUQ4NjZFNjBDNTI5RV9hNGU4N2EyNi1lMThjLTQwMzQtOWY4MC1hNmU0MDI3MzhhMGIiDQp9"
+		}
+	}
+}

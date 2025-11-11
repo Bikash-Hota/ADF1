@@ -1,0 +1,9 @@
+{
+	"name": "bik27thoctadf",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "b2229be4-0fa1-4d02-b57c-356d588bd915",
+		"tenantId": "42d73c8a-a0a1-40b6-a2cf-e5a61d57cfb1"
+	}
+}

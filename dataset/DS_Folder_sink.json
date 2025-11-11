@@ -1,0 +1,20 @@
+{
+	"name": "DS_Folder_sink",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_Folder_SInk",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "foldersink"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
