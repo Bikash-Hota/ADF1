@@ -195,7 +195,7 @@
 			"type": "string",
 			"defaultValue": "sa"
 		},
-		"TR_event1_properties_typeProperties_scope": {
+		"trigger1_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/24f7968e-652e-4f9b-b439-5f3e78b20072/resourceGroups/bik27thoct/providers/Microsoft.Storage/storageAccounts/adlsdevsourcetest"
 		},
@@ -385,8 +385,8 @@
 					"SqlServer1_properties_typeProperties_userName": {
 						"value": "[parameters('SqlServer1_properties_typeProperties_userName')]"
 					},
-					"TR_event1_properties_typeProperties_scope": {
-						"value": "[parameters('TR_event1_properties_typeProperties_scope')]"
+					"trigger1_properties_typeProperties_scope": {
+						"value": "[parameters('trigger1_properties_typeProperties_scope')]"
 					}
 				}
 			},

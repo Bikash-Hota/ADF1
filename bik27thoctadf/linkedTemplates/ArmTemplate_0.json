@@ -483,6 +483,31 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/DS_trg')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_BULK_PQ",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Parquet",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"folderPath": "trigger",
+						"fileSystem": "trig"
+					},
+					"compressionCodec": "snappy"
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/LS_BULK_PQ')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/Parquet1')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -557,83 +582,6 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/LS_BULK_PQ')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/Parquet2')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "LS_Folder_SInk",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "Parquet",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobFSLocation",
-						"fileSystem": "output"
-					},
-					"compressionCodec": "snappy"
-				},
-				"schema": [
-					{
-						"name": "price",
-						"type": "UTF8"
-					},
-					{
-						"name": "area",
-						"type": "UTF8"
-					},
-					{
-						"name": "bedrooms",
-						"type": "UTF8"
-					},
-					{
-						"name": "bathrooms",
-						"type": "UTF8"
-					},
-					{
-						"name": "stories",
-						"type": "UTF8"
-					},
-					{
-						"name": "mainroad",
-						"type": "UTF8"
-					},
-					{
-						"name": "guestroom",
-						"type": "UTF8"
-					},
-					{
-						"name": "basement",
-						"type": "UTF8"
-					},
-					{
-						"name": "hotwaterheating",
-						"type": "UTF8"
-					},
-					{
-						"name": "airconditioning",
-						"type": "UTF8"
-					},
-					{
-						"name": "parking",
-						"type": "UTF8"
-					},
-					{
-						"name": "prefarea",
-						"type": "UTF8"
-					},
-					{
-						"name": "furnishingstatus",
-						"type": "UTF8"
-					}
-				]
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/LS_Folder_SInk')]"
 			]
 		}
 	]

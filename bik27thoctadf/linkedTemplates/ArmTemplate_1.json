@@ -87,7 +87,7 @@
 			"type": "string",
 			"defaultValue": "sa"
 		},
-		"TR_event1_properties_typeProperties_scope": {
+		"trigger1_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/24f7968e-652e-4f9b-b439-5f3e78b20072/resourceGroups/bik27thoct/providers/Microsoft.Storage/storageAccounts/adlsdevsourcetest"
 		}
@@ -96,6 +96,81 @@
 		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
 	},
 	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/Parquet2')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_Folder_SInk",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Parquet",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileSystem": "output"
+					},
+					"compressionCodec": "snappy"
+				},
+				"schema": [
+					{
+						"name": "price",
+						"type": "UTF8"
+					},
+					{
+						"name": "area",
+						"type": "UTF8"
+					},
+					{
+						"name": "bedrooms",
+						"type": "UTF8"
+					},
+					{
+						"name": "bathrooms",
+						"type": "UTF8"
+					},
+					{
+						"name": "stories",
+						"type": "UTF8"
+					},
+					{
+						"name": "mainroad",
+						"type": "UTF8"
+					},
+					{
+						"name": "guestroom",
+						"type": "UTF8"
+					},
+					{
+						"name": "basement",
+						"type": "UTF8"
+					},
+					{
+						"name": "hotwaterheating",
+						"type": "UTF8"
+					},
+					{
+						"name": "airconditioning",
+						"type": "UTF8"
+					},
+					{
+						"name": "parking",
+						"type": "UTF8"
+					},
+					{
+						"name": "prefarea",
+						"type": "UTF8"
+					},
+					{
+						"name": "furnishingstatus",
+						"type": "UTF8"
+					}
+				]
+			},
+			"dependsOn": []
+		},
 		{
 			"name": "[concat(parameters('factoryName'), '/Parquet3')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
@@ -400,6 +475,79 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/LS_stored_proc')]"
 			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/PL_triggertest')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy data1",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobFSReadSettings",
+									"recursive": true,
+									"wildcardFileName": "*.csv",
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							},
+							"sink": {
+								"type": "ParquetSink",
+								"storeSettings": {
+									"type": "AzureBlobFSWriteSettings"
+								},
+								"formatSettings": {
+									"type": "ParquetWriteSettings"
+								}
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "DS_Folder_source",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "DS_trg",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"annotations": []
+			},
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/Pl_testcs')]",
@@ -721,7 +869,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/TR_event1')]",
+			"name": "[concat(parameters('factoryName'), '/trigger1')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -730,7 +878,7 @@
 				"pipelines": [
 					{
 						"pipelineReference": {
-							"referenceName": "Pl_testcs",
+							"referenceName": "PL_triggertest",
 							"type": "PipelineReference"
 						},
 						"parameters": {}
@@ -740,14 +888,14 @@
 				"typeProperties": {
 					"blobPathBeginsWith": "/bulk/blobs/",
 					"ignoreEmptyBlobs": true,
-					"scope": "[parameters('TR_event1_properties_typeProperties_scope')]",
+					"scope": "[parameters('trigger1_properties_typeProperties_scope')]",
 					"events": [
 						"Microsoft.Storage.BlobCreated"
 					]
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/Pl_testcs')]"
+				"[concat(variables('factoryId'), '/pipelines/PL_triggertest')]"
 			]
 		}
 	]
